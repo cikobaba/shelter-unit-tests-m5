@@ -1,0 +1,40 @@
+Task 8: Test Coverage Analysis
+Project: Shelter Testing Practice
+Date: 22.10.2026
+
+Coverage Results:
+- Total tests: 71
+- Passed tests: 71
+- Class coverage: 88%
+- Method coverage: 76%
+- Line coverage: 80%
+- Branch coverage: 62%
+
+1. AnimalSorter.java - sortByName()
+
+Uncovered branch:
+if (animals == null) {
+    return List.of();
+}
+
+The existing tests cover sorting by name, but they do not test null input for this method.
+
+Decision: Add a test for null input.
+
+Reason: This test would ensure the method returns an empty list instead of throwing an exception. It would help prevent future regressions.
+
+2. AnimalCsvParser.java - parseFile()
+
+Uncovered branch:
+if (header == null) {
+    return new ParseResult(animals, skipped);
+}
+
+The existing tests cover valid CSV files and files containing only a header, but they do not cover a completely empty CSV file.
+
+Decision: Add a test for an empty CSV file.
+
+Reason: Empty files are realistic edge cases. Testing this branch would ensure the parser handles them correctly without unexpected errors.
+
+Conclusion:
+All 71 tests passed successfully. Branch coverage is 62%, indicating that some alternative execution paths remain untested. The two identified scenarios would be useful additions because they cover null handling and empty file processing.
